@@ -1,0 +1,62 @@
+/*** Календарь для сайта
+/* стили оформления
+/* автор @dobrovoi
+/* dbmast.ru ***/
+table.calendar {
+    width:200px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #3c3f41;  
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: normal; 
+    font-size: 12px;
+    padding: 3px;
+}
+td.in_month {
+    text-align: center; 
+    font-weight: normal; 
+    font-size: 12px; 
+    border: 1px solid #cecece;
+    padding: 2px;
+    
+    
+}       
+table.calendar caption {
+       
+    border-bottom: none;
+    font-size: 14px;
+    color: white;
+    height: 35px;
+    line-height: 35px; 
+    
+    background: #3c3f41;
+    
+}   
+ 
+table.calendar th{
+    color: white;
+    padding-bottom: 10px;
+}
+table.calendar td.selected { 
+    background: #d30708; 
+
+    
+    font-size: 10px; 
+}
+table.calendar a {
+    display: block; 
+     
+    text-decoration: none; 
+    color: white;  
+    text-align: center; 
+    font-size: 10px; 
+}
+table.calendar caption a {
+    display: inline;
+    
+    font-size: 10px;
+    color: white;
+    
+}       
