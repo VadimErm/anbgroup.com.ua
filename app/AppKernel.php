@@ -17,9 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),            
-            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
-            new Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
-            new Ivory\CKEditorBundle\IvoryCKEditorBundle()
+            
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
