@@ -1,0 +1,15 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+       breadcrumbs:
+         class: AppBundle\Services\Breadcrumbs
+         calls:
+            - [ setContainer, [ @service_container ]]
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+       menu:
+         class: AppBundle\Services\Menu
+         calls:
+            - [ setContainer, [ @service_container ]]

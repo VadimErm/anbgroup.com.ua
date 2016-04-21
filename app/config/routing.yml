@@ -1,0 +1,25 @@
+app:
+    resource: "@AppBundle/Controller/"
+
+AppBundle_content:
+        resource: "@AppBundle/Resources/config/routing/content.yml"
+        prefix:   /content
+        
+AppBundle_categories:
+        resource: "@AppBundle/Resources/config/routing/categories.yml"
+        prefix:   /categories
+
+AppBundle_news:
+        resource: "@AppBundle/Resources/config/routing/news.yml"
+        prefix:   /news
+
+    
+
+index:
+   path: /
+   defaults: {_controller:AppBundle:Main:index}
+show:
+   path: /show/{uri}
+   defaults: {_controller:AppBundle:Main:show}
+logout:
+    path: /logout
