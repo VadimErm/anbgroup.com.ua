@@ -1,0 +1,49 @@
+AppBundle\Entity\Categories:
+    type: entity
+    oneToMany:
+        children:
+            fetch: "EAGER"
+            targetEntity: AppBundle\Entity\Categories
+            mappedBy: parent
+            cascade: ["all"]
+        contents:
+            targetEntity: AppBundle\Entity\Content
+            mappedBy: categories
+    manyToOne:
+        parent:
+            targetEntity: AppBundle\Entity\Categories
+            inversedBy: children
+            joinColumn:
+                name: parentId
+                referencedColumnName: id
+    table: categories
+   
+    repositoryClass: AppBundle\Entity\CategoriesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        uri:
+            type: string
+            length: 70
+        htmlTitle:
+            type: string
+            length: '255'
+            
+        metaTitle:
+            type: string
+            length: '255'
+            
+        metaDescription:
+            type: text
+            
+        metaKeywords:
+            type: text  
+                
+    lifecycleCallbacks: {  }
