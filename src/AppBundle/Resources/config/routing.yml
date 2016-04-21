@@ -1,0 +1,8 @@
+app_news:
+    resource: "@AppBundle/Resources/config/routing/news.yml"
+    prefix:   /news
+
+app_content:
+    resource: "@AppBundle/Resources/config/routing/content.yml"
+    prefix:   /content
+
