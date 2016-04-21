@@ -1,0 +1,28 @@
+AppBundle\Entity\Content:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        field:
+            type: text
+        createdDate:
+            type: date
+            column: created_date
+    lifecycleCallbacks: 
+         prePersist: [setCreatedDate]
+    manyToOne:
+        categories:
+            targetEntity: Categories
+            inversedBy: contents
+            joinColumn:
+                name: categories_id
+                referencedColumnName: id
+                onDelete: CASCADE

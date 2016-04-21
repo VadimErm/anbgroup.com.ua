@@ -1,0 +1,23 @@
+AppBundle\Entity\News:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        link:
+            type: string
+            length: '255'
+        date:
+            type: date
+        category:
+            type: string
+            length: '255'
+    lifecycleCallbacks: 
+         prePersist: [setDate]
