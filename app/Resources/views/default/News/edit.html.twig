@@ -1,0 +1,50 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+{% block content -%}
+   <article class="module width_full clearfix">
+			<header><h3>Редактирование</h3></header>
+			<div class="module_content">
+
+              {{ form_start(edit_form) }}
+                  <div class="fieldset">
+                      {{ form_label(edit_form.title) }}
+                      {{ form_errors(edit_form.title) }}
+                      {{ form_widget(edit_form.title) }}
+                  </div>
+                  <div class="fieldset category">
+                      {{ form_label(edit_form.link) }}
+                      {{ form_errors(edit_form.link) }}
+                      {{ form_widget(edit_form.link) }}
+                  </div>
+                  <div>
+                      {{ form_errors(edit_form.date) }}
+                      {{ form_widget(edit_form.date) }}
+                  </div>
+                  <div class="fieldset category">
+                      {{ form_label(edit_form.category) }}
+                      {{ form_errors(edit_form.category) }}
+                      {{ form_widget(edit_form.category) }}
+                  </div>
+          </div>
+                  <footer>
+                      <div class="submit_link">
+                           {{ form_rest(edit_form)}}
+                           {{ form_widget(edit_form.submit) }}
+                      </div>
+                      <div class="submit_link">
+                           {{ form(delete_form) }}
+                      </div>
+                  </footer>
+             {{ form_end(edit_form) }}
+
+  </article>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('news') }}">
+           Вернуться к списку
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

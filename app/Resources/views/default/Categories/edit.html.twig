@@ -1,0 +1,67 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+{% block content -%}
+   <article class="module width_full clearfix">
+			<header><h3>Редактирование</h3></header>
+			<div class="module_content">
+
+              {{ form_start(edit_form) }}
+                  <div class="fieldset">
+                      {{ form_label(edit_form.name) }}
+                      {{ form_errors(edit_form.name) }}
+                      {{ form_widget(edit_form.name) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(edit_form.uri) }}
+                      {{ form_errors(edit_form.uri) }}
+                      {{ form_widget(edit_form.uri) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(edit_form.parent) }}
+                      {{ form_errors(edit_form.parent) }}
+                      {{ form_widget(edit_form.parent) }}
+                  </div>
+                 <div class="fieldset">
+                      {{ form_label(edit_form.htmlTitle) }}
+                      {{ form_errors(edit_form.htmlTitle) }}
+                      {{ form_widget(edit_form.htmlTitle) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(edit_form.metaTitle) }}
+                      {{ form_errors(edit_form.metaTitle) }}
+                      {{ form_widget(edit_form.metaTitle) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(edit_form.metaDescription) }}
+                      {{ form_errors(edit_form.metaDescription) }}
+                      {{ form_widget(edit_form.metaDescription) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(edit_form.metaKeywords) }}
+                      {{ form_errors(edit_form.metaKeywords) }}
+                      {{ form_widget(edit_form.metaKeywords) }}
+                  </div>
+          </div>
+                  <footer>
+                      <div class="submit_link">
+                           {{ form_rest(edit_form)}}
+                           {{ form_widget(edit_form.submit) }}
+                      </div>
+                      <div class="submit_link">
+                           {{ form(delete_form) }}
+                      </div>
+                  </footer>
+             {{ form_end(edit_form) }}
+
+  </article>
+
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('categories') }}">
+            Вернуться к списку
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

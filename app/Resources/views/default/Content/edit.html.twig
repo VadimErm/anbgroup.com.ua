@@ -1,0 +1,59 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+{% block content -%}
+     <article class="module width_full clearfix">
+			<header><h3>Редактирование</h3></header>
+			<div class="module_content">
+
+              {{ form_start(edit_form) }}
+                  <div class="fieldset">
+                      {{ form_label(edit_form.title) }}
+                      {{ form_errors(edit_form.title) }}
+                      {{ form_widget(edit_form.title) }}
+                  </div>
+                  <div>
+                      {{ form_errors(edit_form.field) }}
+                      {{ form_widget(edit_form.field) }}
+                  </div>
+                  <div>
+                      {{ form_errors(edit_form.createdDate) }}
+                      {{ form_widget(edit_form.createdDate) }}
+                  </div>
+                  <div class="fieldset category">
+                      {{ form_label(edit_form.categories) }}
+                      {{ form_errors(edit_form.categories) }}
+                      {{ form_widget(edit_form.categories) }}
+                  </div>
+                  <div>
+                                         
+                  </div>
+                  
+          </div>
+                  <footer>
+                      
+                      <div class="submit_link">
+                           {{ form_rest(edit_form)}}
+                           {{ form_widget(edit_form.submit) }}
+                      </div>
+                      <div class="submit_link">
+                           {{ form(delete_form) }}
+                      </div>
+                  </footer>
+             
+             {{ form_end(edit_form) }}
+
+  </article>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('content') }}">
+           Вернуться к списку
+        </a>
+    </li>
+
+</ul>
+<script>
+    CKEDITOR.replace( 'appbundle_content_field' );
+</script>
+{% endblock %}
+

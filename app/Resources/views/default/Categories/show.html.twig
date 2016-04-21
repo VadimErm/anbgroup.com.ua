@@ -1,0 +1,65 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+
+{% block content -%}
+    <article class="module width_full clearfix">
+    <header>
+		<h3 class="tabs_involved">Контент</h3>
+
+		</header>
+
+    <table class="tablevertical">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>URI</th>
+                <td>{{ entity.uri }}</td>
+            </tr>
+            <tr>
+                <th>Родитель</th>
+                <td>{{ entity.parent }}</td>
+            </tr>
+            <tr>
+                <th>HTML Title</th>
+                <td>{{ entity.htmlTitle }}</td>
+            </tr>
+            <tr>
+                <th>META Title</th>
+                <td>{{ entity.metaTitle }}</td>
+            </tr>
+            <tr>
+                <th>META Description</th>
+                <td>{{ entity.metaDescription }}</td>
+            </tr>
+            <tr>
+                <th>META Keywords</th>
+                <td>{{ entity.metaKeywords }}</td>
+            </tr>
+        </tbody>
+    </table>
+     <footer>
+                      <div class="submit_link">
+                           {{ form(delete_form) }}
+                      </div>
+                      <div class="submit_link">
+                           <a class='button' href="{{ path('categories_edit', { 'id': entity.id }) }}">Редактировать</a>
+                      </div>
+                  </footer>
+   </article>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('categories') }}">
+            Вернуться к списку
+        </a>
+    </li>
+
+</ul>
+{% endblock %}

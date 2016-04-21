@@ -1,0 +1,95 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+{% block content -%}
+     <article class="module width_full clearfix">
+    <header>
+		<h3 class="tabs_involved">Категории</h3>
+
+		</header>
+
+    <table class="tablesorter">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>URI</th>
+                <th>Родитель</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('categories_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.uri }}</td>
+                <td>{{ entity.parent }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('categories_show', { 'id': entity.id }) }}">Показать</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('categories_edit', { 'id': entity.id }) }}">Редактировать</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('categories_delete', { 'id': entity.id }) }}">Удалить</a>
+                    </li>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   </article>
+   <article class="module width_full clearfix">
+			<header><h3>Создать категорию</h3></header>
+			<div class="module_content">
+
+              {{ form_start(new_form) }}
+                  <div class="fieldset">
+                      {{ form_label(new_form.name) }}
+                      {{ form_errors(new_form.name) }}
+                      {{ form_widget(new_form.name) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.uri) }}
+                      {{ form_errors(new_form.uri) }}
+                      {{ form_widget(new_form.uri) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.parent) }}
+                      {{ form_errors(new_form.parent) }}
+                      {{ form_widget(new_form.parent) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.htmlTitle) }}
+                      {{ form_errors(new_form.htmlTitle) }}
+                      {{ form_widget(new_form.htmlTitle) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.metaTitle) }}
+                      {{ form_errors(new_form.metaTitle) }}
+                      {{ form_widget(new_form.metaTitle) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.metaDescription) }}
+                      {{ form_errors(new_form.metaDescription) }}
+                      {{ form_widget(new_form.metaDescription) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.metaKeywords) }}
+                      {{ form_errors(new_form.metaKeywords) }}
+                      {{ form_widget(new_form.metaKeywords) }}
+                  </div>
+
+          </div>
+                  <footer>
+                      <div class="submit_link">
+                           {{ form_widget(new_form.submit) }}
+                      </div>
+                  </footer>
+             {{ form_end(new_form) }}
+
+  </article>
+
+    {% endblock %}

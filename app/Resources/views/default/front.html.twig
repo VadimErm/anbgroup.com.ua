@@ -1,0 +1,177 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+   {% if category.htmlTitle is defined  and category.htmlTitle is not empty  %}
+        {{ category.htmlTitle }}
+   {% elseif category.htmlTitle is defined  and category.htmlTitle is  empty %}
+        anbconsult.com.ua
+   {% else %}
+        anbconsult.com.ua
+   {% endif %}
+{% endblock %}
+{% block meta %}
+   {% if category.metaTitle is defined  and category.metaTitle is not empty  %}
+      <meta name="title" content="{{ category.metaTitle }}">
+      <meta name="description" content="{{ category.metaDescription }}">
+      <meta name="keywords" content="{{ category.metaKeywords }}">
+   {% else %}
+      <meta name="title" content="anbconsult.com.ua">
+      <meta name="description" content="anbconsult.com.ua">
+      <meta name="keywords" content="anbconsult.com.ua">
+   {% endif %}
+{% endblock %}
+{% block stylesheets %}
+
+     <link rel="stylesheet" href="{{ asset('bundles/app/css/style.css') }}" />
+     <link rel="stylesheet" href="{{ asset('bundles/app/css/calendar.css') }}" />
+     <link rel="stylesheet" href="{{ asset('bundles/app/css/mobilyslider.css') }}" />
+     <link rel="stylesheet" href="{{ asset('bundles/app/css/tabs.css') }}" />
+
+{% endblock %}
+{% block javascripts %}
+
+     <script src="{{ asset('bundles/app/js/jquery-1.12.0.min.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/stickmenu.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/mobilyslider/mobilyslider.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/mobilyslider/init.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/tabs.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/calendar.js') }}"></script>
+     <script src="{{ asset('bundles/app/js/navAccordion.js') }}"></script>
+     <script type="text/javascript">          
+         
+
+     </script>
+{% endblock %}
+ {% block body %}
+      <div class="wrapper">
+        <div class="header clearfix">
+             <div class="wrap">
+                <a href="/">
+                     <div class="logo">Логотип</div>
+                </a>
+                <div class="adress">
+                <p>04050, Україна, м. Київ, вул. Тельма 1/32</p>
+                </div>
+                <div class="phones">
+                <p>+38 (093) 654-72-30</p>
+                <p>+38 (093) 654-72-30</p>
+                <p>+38 (093) 654-72-30</p>
+                </div>
+             </div>
+        </div>
+        <div id="stick_menu" class="menu">
+
+
+                <ul>
+                   <li class="home"><a href="/">Главная</a></li>
+                   {{ render (controller(
+                      'AppBundle:Main:menu',
+                       {'uri': uri | default(null),
+                        'menu_type' : 'menu'  })) }}
+                </ul>
+
+
+        </div>
+        <div class="container">
+            {% if breadcrumbs is defined and contents is not empty %}
+                   {{ include('default/content.html.twig') }}
+            {% elseif breadcrumbs is defined and contents is empty %}
+                   {{ include('default/error404smal.html.twig') }}
+            {% else %}
+                   {{ include('default/home.html.twig') }}
+            {% endif %}
+        </div>
+        <div class="footer">
+          <div class="wrap clearfix upper">
+            <ul class="map">
+                 {{ render (controller(
+                   'AppBundle:Main:menu',
+                   { 'uri': uri | default(null),
+                   'menu_type': null}
+                           )) }}
+            </ul>
+            <div class="social">
+                <h1>Ми у соцмережах</h1>
+                <ul>
+                   <li><span class="fb">Фейсбук</span><a href="#">Facebook</a></li>
+                   <li><span class="vk">Вконтакте</span><a href="#">Вконтакте</a></li>
+                   <li><span class="tw">Твитер</span><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+          </div>
+
+          <div class="lower clearfix">
+
+			 <div class="brd"></div>
+             <div class="wrap">
+               <div class="contact">
+                   <p>04050, Україна, м. Київ, вул. Тельма 1/32</p>
+                   <p><span class="email">E-mail:</span> anbconsalting@ukr.net</p>
+                   <p><span class="skype">Skype:</span> dmitriykost</p>
+                   <p>© 2016. "ANBCONSALTING.com.ua". Все права защищены</p>
+               </div>
+               <div class="phones">
+                   <p>+38 (093) 654-72-30</p>
+                   <p>+38 (093) 654-72-30</p>
+                   <p>+38 (093) 654-72-30</p>
+
+               </div>
+             </div>
+          </div>
+        </div>
+      </div>
+         <script type="text/javascript">          
+         jQuery('.accordion').navAccordion({
+
+  // Text inside of expand button
+  expandButtonText : "+", 
+
+  // Text inside of collapse button
+  collapseButtonText: "-",  
+
+  // Expand the selected channel
+  selectedExpand: "true",   
+
+  // Class that will be used to detect the currently selected channel
+  // This will check the "parentElement" for this class (the parent <li> by default)
+  selectedClass: "selected",  
+
+  // Apply accordion to all levels
+  // Setting this to false will apply the accordion only to the first level
+  multipleLevels: "true",  
+
+  // Width of accordion expand/collapse button as a percentage or pixels
+  buttonWidth: "20%",  
+
+  // Position of button
+  buttonPosition: "right",  
+
+  // Speed of slide animation
+  // "fast", "slow", or number in milliseconds such as 500
+  slideSpeed: "fast",   
+
+  // Parent element type, class or ID
+  // You don't need to change this if you're using a ul > li > ul pattern
+  parentElement: "li",  
+
+  // Child element type, class or ID 
+  // You don't need to change this if you're using a ul > li > ul pattern
+  childElement: "ul",   
+
+  // Setting to true will make any link with sub-nav behave as if it were set to header only, making the link inaccessible
+  // This option is useful if you are using the plugin for a non-navigation area 
+  headersOnly: true,  
+
+  // Setting to true to apply the accordion only to links that are set as "header only" (have no href)
+  headersOnlyCheck: false,
+
+  // Delay following the href of links until after the accordion the has expanded
+  delayLink: false,  
+
+  // Time in milliseconds to delay before following href - will use "slideSpeed" by default if nothing else is set 
+  delayAmount: false 
+  
+});
+
+     </script>
+  {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+
+
+{% block content %}
+    <h1>Ñîçäàòü íîâóþ çàïèñü</h1>
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('content') }}">
+            Âåðíóòüñÿ ê ñïèñêó
+        </a>
+    </li>
+</ul>
+{% endblock %}
+

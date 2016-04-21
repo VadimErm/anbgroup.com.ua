@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/admin.css') }}" />
+{% endblock %}
+{% block javascripts %}
+    
+            <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+	  
+	  
+{% endblock %}	
+
+{% block body %}
+
+	<header id="header">
+		<hgroup>
+			<h1 class="site_title">Админ-панель</h1>
+			<h2 class="section_title">Управление контентом</h2>
+		</hgroup>
+	</header> <!-- end of header bar -->
+<div class="container">
+	<aside id="sidebar" class="column">
+		<h3>Контент</h3>
+		<ul class="toggle">
+			<li class="icn_new_article"><a href={{ path('content') }}>Контент</a></li>
+			<li class="icn_edit_article"><a href={{ path('news') }}>Новости</a></li>
+			<li class="icn_categories"><a href={{ path('categories') }}>Категории</a></li>
+         <li class=""><a href={{ path('logout') }}>Выход</a></li>
+		</ul>
+	</aside><!-- end of sidebar -->
+
+	<section id="main" class="column">
+
+
+		{% block content %}{% endblock %}
+
+		<div class="spacer"></div>
+</div>
+	</section>
+
+
+{% endblock %}

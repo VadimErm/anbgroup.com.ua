@@ -1,0 +1,81 @@
+{% extends "default/Admin/admin.html.twig" %}
+
+{% block content -%}
+     <article class="module width_full clearfix">
+    <header>
+		<h3 class="tabs_involved">Контент</h3>
+
+		</header>
+
+    <table class="tablesorter">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Заголовок</th>
+                <th>Ссылка</th>
+                <th>Дата создания</th>
+                <th>Категория</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('news_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.title }}</td>
+                <td><a href="{{ entity.link }}">{{ entity.link }}</a></td>
+                <td>{% if entity.date %}{{ entity.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ entity.category }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('news_show', { 'id': entity.id }) }}">Показать</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_edit', { 'id': entity.id }) }}">Редактировать</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('news_delete', { 'id': entity.id }) }}">Удалить</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </article>
+    <article class="module width_full clearfix">
+			<header><h3>Создать новость</h3></header>
+			<div class="module_content">
+
+              {{ form_start(new_form) }}
+                  <div class="fieldset">
+                      {{ form_label(new_form.title) }}
+                      {{ form_errors(new_form.title) }}
+                      {{ form_widget(new_form.title) }}
+                  </div>
+                  <div class="fieldset">
+                      {{ form_label(new_form.link) }}
+                      {{ form_errors(new_form.link) }}
+                      {{ form_widget(new_form.link) }}
+                  </div>
+                  <div>
+                      {{ form_errors(new_form.date) }}
+                      {{ form_widget(new_form.date) }}
+                  </div>
+                  <div class="fieldset category">
+                      {{ form_label(new_form.category) }}
+                      {{ form_errors(new_form.category) }}
+                      {{ form_widget(new_form.category) }}
+                  </div>
+          </div>
+                  <footer>
+                      <div class="submit_link">
+                           {{ form_widget(new_form.submit) }}
+                      </div>
+                  </footer>
+             {{ form_end(new_form) }}
+
+  </article>
+
+    {% endblock %}

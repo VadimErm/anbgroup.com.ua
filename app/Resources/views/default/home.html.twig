@@ -1,0 +1,71 @@
+<div class="slider slider1">
+        <div class="sliderContent">
+            <div class="item">
+
+                <img src="{{ asset('bundles/app/css/images/img1.jpg') }}" alt="" />
+                <div class="item_text">
+                    <h1>Заголовок</h1>
+                    <p>Lorem ipsum dolor sit.
+                       Condimentum nisl, urna nunc sem hendrerit
+                       nam neque mus nisi. Eros a cras nulla auctor
+                       ante fermentum primis, vitae phasellus habitasse.
+                       Nibh vulputate in aenean hac, cras ve curae nullam
+                       ac suscipit posuere vivamus nunc massa.
+                    </p>
+                    <a href="" class="button">Подробнее</a>
+                </div>
+            </div>
+            <div class="item">
+                <img src="{{ asset('bundles/app/css/images/img2.jpg') }}" alt="" />
+                <div class="item_text">
+                    <h1>Заголовок</h1>
+                    <p>Lorem ipsum dolor sit.
+                       Condimentum nisl, urna nunc sem hendrerit
+                       nam neque mus nisi. Eros a cras nulla auctor
+                       ante fermentum primis, vitae phasellus habitasse.
+                       Nibh vulputate in aenean hac, cras ve curae nullam
+                       ac suscipit posuere vivamus nunc massa.
+                    </p>
+                    <a href="" class="button">Подробнее</a>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="tabs">
+
+	<ul class="tabs_caption clearfix">
+		<li class="active">Новини</li>
+		<li>Думка експерта</li>
+		<li>Публікації</li>
+	</ul>
+
+	<div class="tabs_content  active">
+	{% for new in news if new.category == 'news' %}
+	   <div class="news-item">
+	      <span class="date">{{ new.date | date('Y-m-d')}}</span>
+	      <a href="{{ new.link }}" >{{ new.title }} </a>
+	   </div>
+	 {% endfor %}
+	</div>
+
+	<div class="tabs_content">
+	  {% for new in news if new.category == 'opinion' %}
+	   <div class="news-item">
+	      <span class="date">{{ new.date | date('Y-m-d')}}</span>
+	      <a href="{{ new.link }}" >{{ new.title }} </a>
+	   </div>
+	 {% endfor %}
+	</div>
+
+	<div class="tabs_content">
+	   {% for new in news if new.category == 'public' %}
+	   <div class="news-item">
+	      <span class="date">{{ new.date | date('Y-m-d')}}</span>
+	      <a href="{{ new.link }}" >{{ new.title }} </a>
+	   </div>
+	 {% endfor %}
+	</div>
+
+
+
+</div>
